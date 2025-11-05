@@ -1,0 +1,26 @@
+<svg width="640" height="160" viewBox="0 0 640 160" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="vcg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#A874E5"/>
+            <stop offset="100%" stop-color="#6D1A94"/>
+        </linearGradient>
+        <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="rgba(0,0,0,.35)"/>
+        </filter>
+        <style>
+            .wordmark { font: 800 56px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Inter", sans-serif; }
+        </style>
+    </defs>
+
+    <!-- Isotipo -->
+    <g transform="translate(8,8)">
+        <rect x="0" y="0" width="96" height="96" rx="24" fill="url(#vcg)" filter="url(#soft)"/>
+        <path d="M18 30c0-3 2.4-5.4 5.4-5.4h8.6c2.2 0 4.1 1.3 4.9 3.3l10.4 24.5c.5 1.2 2.3 1.2 2.8 0L66.6 28c.8-2 2.7-3.3 4.9-3.3h8.6c3 0 5.4 2.4 5.4 5.4 0 .8-.2 1.6-.5 2.3l-17.7 39.3c-.7 1.8-2.5 3-4.5 3h-10c-2 0-3.8-1.2-4.5-3L19 32.3c-.3-.7-.5-1.5-.5-2.3z" fill="white"/>
+    </g>
+
+    <!-- Wordmark -->
+    <g transform="translate(120,80)">
+        <text class="wordmark" x="0" y="16" fill="#ffffff">VECTOR</text>
+        <text class="wordmark" x="245" y="16" fill="#A874E5">COM</text>
+    </g>
+</svg>
