@@ -1,14 +1,16 @@
 @import "tailwindcss";
 
-/* Forzamos modo oscuro por defecto */
+/* ================== Base ================== */
+/* Forzamos modo oscuro por defecto (matching tu diseño) */
 :root { color-scheme: dark; }
 
 /* Altura completa para que el bg cubra toda la pantalla */
 html, body { height: 100%; }
 
-/* Tipografía base opcional (sin tocar background/color) */
+/* Tipografía base (puedes cambiarla si luego integras una fuente) */
 body { font-family: Arial, Helvetica, sans-serif; }
 
+/* ================== Topbar / Gradiente animado opcional ================== */
 @keyframes vectorcom-gradient {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
@@ -16,7 +18,85 @@ body { font-family: Arial, Helvetica, sans-serif; }
 }
 .animate-vectorcom-gradient { animation: vectorcom-gradient 6s linear infinite; }
 
-/* Respeta accesibilidad si el usuario prefiere menos animación */
+/* ================== Animaciones IoT / Smart City (cubo + calles) ================== */
+/* Dashes que fluyen por las calles (para <path> con stroke-dasharray) */
+@keyframes dash { to { stroke-dashoffset: -1000; } }
+.neon-dash-16 { animation: dash 16s linear infinite; }
+.neon-dash-12 { animation: dash 12s linear infinite; }
+.neon-dash-18 { animation: dash 18s linear infinite; }
+.neon-dash-10 { animation: dash 10s linear infinite; }
+
+/* Rascacielos que “respiran” (emergen del cubo) */
+@keyframes rise {
+  0%, 100% { transform: translateY(6px) scaleY(.88); }
+  30%      { transform: translateY(-12px) scaleY(1.12); }
+  60%      { transform: translateY(-4px)  scaleY(.98);  }
+}
+.riseA { animation: rise 6.5s ease-in-out infinite; }
+.riseB { animation: rise 7.5s ease-in-out infinite .5s; }
+.riseC { animation: rise 8.5s ease-in-out infinite 1s; }
+
+/* Algunos elementos (p. ej. puntos “autos”) pueden llevar esta clase para ocultarse si el usuario pide menos movimiento */
+.reduce-motion-hide {}
+
+/* ================== Accesibilidad (reduce motion) ================== */
 @media (prefers-reduced-motion: reduce) {
-  .animate-vectorcom-gradient { animation: none; }
+  .animate-vectorcom-gradient,
+  .neon-dash-16, .neon-dash-12, .neon-dash-18, .neon-dash-10,
+  .riseA, .riseB, .riseC {
+    animation: none !important;
+  }
+  .reduce-motion-hide { display: none !important; }
+}
+@keyframes dash { to { stroke-dashoffset: -1000; } }
+.neon-dash-16 { animation: dash 16s linear infinite; }
+.neon-dash-12 { animation: dash 12s linear infinite; }
+.neon-dash-18 { animation: dash 18s linear infinite; }
+.neon-dash-10 { animation: dash 10s linear infinite; }
+
+/* ===== Tron City add-ons ===== */
+
+/* Barrido vertical de “scan beam” (edificios + overlay) */
+@keyframes tc-scan {
+  0%   { transform: translateY(-120%); }
+  100% { transform: translateY(220%); }
+}
+.tc-scan { animation: tc-scan 6s linear infinite; }
+
+/* Si el usuario pide menos movimiento, detenemos animaciones extra */
+@media (prefers-reduced-motion: reduce) {
+  .tc-scan { animation: none !important; }
+}
+/* Ventanas titilan (ligero brillo/variación) */
+@keyframes tc-twinkle {
+  0%   { opacity: .55; }
+  50%  { opacity: .92; }
+  100% { opacity: .68; }
+}
+.tc-twinkle-slow { animation: tc-twinkle 2.8s ease-in-out infinite alternate; }
+.tc-twinkle-fast { animation: tc-twinkle 1.8s ease-in-out infinite alternate; }
+
+/* Barrido vertical (ya lo usábamos para hologramas y overlay) */
+@keyframes tc-scan {
+  0%   { transform: translateY(-120%); }
+  100% { transform: translateY(220%); }
+}
+.tc-scan { animation: tc-scan 6s linear infinite; }
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .tc-twinkle-slow,
+  .tc-twinkle-fast,
+  .tc-scan { animation: none !important; }
+}
+
+/* Banda que cruza horizontalmente la tarjeta (variant: scan) */
+@keyframes scanX {
+  0%   { transform: translateX(-130%); }
+  100% { transform: translateX(130%); }
+}
+.animate-scanX { animation: scanX 4.5s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scanX { animation: none !important; }
 }

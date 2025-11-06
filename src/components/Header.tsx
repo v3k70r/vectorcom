@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import Logo from "@/components/Logo";
 
@@ -19,6 +18,13 @@ export default function Header() {
         };
     }, []);
 
+    const links = [
+        { href: "#servicios", label: "Servicios" },
+        { href: "#proyectos", label: "Proyectos" },
+        { href: "#equipo", label: "Equipo" },      // ⇦ nuevo
+        { href: "#contacto", label: "Contacto" },
+    ];
+
     return (
         <header
             className={`sticky top-[4px] z-50 transition ${
@@ -28,7 +34,7 @@ export default function Header() {
             }`}
         >
             <div className="max-w-[1120px] w-[92%] mx-auto flex items-center justify-between py-3">
-                {/* Logo nuevo (SVG + wordmark) */}
+                {/* Logo (linkea a #inicio si lo tienes así en tu <Logo />) */}
                 <Logo size="lg" />
 
                 {/* Navegación */}
@@ -45,11 +51,7 @@ export default function Header() {
 
                     {/* Links desktop */}
                     <ul className="md:flex gap-4 text-zinc-300 hidden">
-                        {[
-                            { href: "#servicios", label: "Servicios" },
-                            { href: "#proyectos", label: "Proyectos" },
-                            { href: "#contacto", label: "Contacto" },
-                        ].map((i) => (
+                        {links.map((i) => (
                             <li key={i.href}>
                                 <a
                                     href={i.href}
@@ -67,36 +69,18 @@ export default function Header() {
                             className="md:hidden absolute right-0 mt-2 bg-black/90 border border-zinc-800/60 rounded-xl p-2 w-[86vw] max-w-[240px]"
                             role="menu"
                         >
-                            <li>
-                                <a
-                                    className="block px-3 py-2 rounded-lg hover:bg-zinc-800/60"
-                                    href="#servicios"
-                                    role="menuitem"
-                                    onClick={() => setOpen(false)}
-                                >
-                                    Servicios
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    className="block px-3 py-2 rounded-lg hover:bg-zinc-800/60"
-                                    href="#proyectos"
-                                    role="menuitem"
-                                    onClick={() => setOpen(false)}
-                                >
-                                    Proyectos
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    className="block px-3 py-2 rounded-lg hover:bg-zinc-800/60"
-                                    href="#contacto"
-                                    role="menuitem"
-                                    onClick={() => setOpen(false)}
-                                >
-                                    Contacto
-                                </a>
-                            </li>
+                            {links.map((i) => (
+                                <li key={i.href}>
+                                    <a
+                                        className="block px-3 py-2 rounded-lg hover:bg-zinc-800/60"
+                                        href={i.href}
+                                        role="menuitem"
+                                        onClick={() => setOpen(false)}
+                                    >
+                                        {i.label}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     )}
                 </nav>

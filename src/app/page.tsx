@@ -4,7 +4,11 @@ import Section from "@/components/Section";
 import ServiceCard from "@/components/ServiceCard";
 import ClientsCloud from "@/components/ClientsCloud";
 import ContactForm from "@/components/ContactForm";
-
+import HeroCityCube from "@/components/HeroCityCube";
+import HeroCityCubeV2 from "@/components/HeroCityCubeV2";
+import RubikNeonCube from "@/components/RubikNeonCube";
+import TronCityNeon from "@/components/TronCityNeon";
+import TeamCard from "@/components/TeamCard";
 
 
 export default function HomePage() {
@@ -22,7 +26,7 @@ export default function HomePage() {
             Tecnología aplicada a tu negocio
           </span>
             <h1 className="mt-4 text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
-              Software, IoT Agronómico y Visión Computacional
+              Software, inteligencia artificial, Internet of Things en tu negocio.
             </h1>
             <p className="mt-3 text-zinc-400">
               Implementamos soluciones que elevan la productividad sin interrumpir tu operación.
@@ -41,15 +45,36 @@ export default function HomePage() {
                 Ver servicios
               </a>
             </div>
-            <div className="mt-3 text-purple-200/80 text-sm">⚡ Rápido • ♿ Accesible • 📱 Responsive</div>
+            <div className="mt-3 text-purple-200/80 text-sm">⚡ Rápido • ♿ Accesible • 🤖 Inteligente</div>
           </div>
 
-          <div className="rounded-2xl p-4 border border-zinc-800/60 bg-zinc-900/30 shadow-[0_20px_60px_rgba(109,26,148,.25)]">
-            <div className="aspect-[4/3] rounded-xl grid place-items-center bg-gradient-to-br from-[rgba(109,26,148,0.2)] to-black/60 text-purple-100 font-bold">
-              Previsualización
+            <div className="rounded-2xl p-4 border border-zinc-800/60 bg-zinc-900/30 shadow-[0_10px_30px_rgba(109,26,148,.35)]">
+                <TronCityNeon />
             </div>
-          </div>
         </section>
+          {/* EQUIPO */}
+          <Section
+              id="equipo"
+              title="Equipo"
+              subtitle="Un equipo compacto y senior, con foco en entregar valor rápido."
+          >
+              <div className="grid md:grid-cols-2 gap-4">
+                  <TeamCard
+                      name="Matías Cañas"
+                      role="CEO"
+                      // Si luego agregas fotos: photoUrl="/team/matias.jpg"
+                      // linkedin="https://www.linkedin.com/in/..."
+                      // email="matias@vectorcom.cl"
+                  />
+                  <TeamCard
+                      name="Víctor Albarrán"
+                      role="CTO"
+                      // photoUrl="/team/victor.jpg"
+                      // linkedin="https://www.linkedin.com/in/..."
+                      // email="victor@vectorcom.cl"
+                  />
+              </div>
+          </Section>
 
         {/* CLIENTES */}
         <Section id="clientes" title="Confían en nosotros" subtitle="Agro, industria, retail y sector público.">
@@ -57,13 +82,25 @@ export default function HomePage() {
         </Section>
 
         {/* SERVICIOS */}
-        <Section id="servicios" title="Servicios" subtitle="Implementa lo necesario hoy y escala cuando lo requieras.">
-          <div className="grid md:grid-cols-3 gap-4">
-            <ServiceCard title="Software Empresarial" desc="Aplicaciones de gestión, paneles e integraciones (API/ETL)." />
-            <ServiceCard title="IoT Agronómico" desc="Sensores (ESP32/Arduino), telemetría y control de riego." />
-            <ServiceCard title="Visión Computacional" desc="QA y conteo con cámaras + modelos de IA en borde o nube." />
-          </div>
-        </Section>
+          <Section id="servicios" title="Servicios" subtitle="Implementa lo necesario hoy y escala cuando lo requieras.">
+              <div className="grid md:grid-cols-3 gap-4">
+                  <ServiceCard
+                      kind="software"
+                      title="Software Empresarial"
+                      desc="Aplicaciones de gestión, paneles e integraciones (API/ETL)."
+                  />
+                  <ServiceCard
+                      kind="iot"
+                      title="IoT Agronómico"
+                      desc="Sensores (ESP32/Arduino), telemetría y control de riego."
+                  />
+                  <ServiceCard
+                      kind="vision"
+                      title="Visión Computacional"
+                      desc="QA y conteo con cámaras + modelos de IA en borde o nube."
+                  />
+              </div>
+          </Section>
 
         {/* PROYECTOS */}
         <Section id="proyectos" title="Proyectos" subtitle="Reemplaza con tus casos de éxito (KPI y breve descripción).">
