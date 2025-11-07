@@ -142,7 +142,7 @@ export default function HomePage() {
                     />
                     <ProductCard
                         kind="custom"
-                        name="VectorSense"
+                        name="VectorView"
                         badge="BI + ETL"
                         tagline="Analítica y dashboards en tiempo real a partir de tus sistemas e IoT."
                         features={[
