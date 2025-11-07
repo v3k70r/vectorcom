@@ -95,7 +95,7 @@ export default function HomePage() {
                     <ProductCard
                         kind="productivity"
                         name="Aladino"
-                        badge="IA"
+                        badge="Visión + IA"
                         tagline="IA para productividad: visión + analítica de tiempos y flujos."
                         features={[
                             "KPIs y cuellos de botella",
@@ -138,6 +138,17 @@ export default function HomePage() {
                             "Discovery + UX/UI + dev",
                             "APIs/ETL e integraciones",
                             "Soporte continuo",
+                        ]}
+                    />
+                    <ProductCard
+                        kind="custom"
+                        name="VectorSense"
+                        badge="BI + ETL"
+                        tagline="Analítica y dashboards en tiempo real a partir de tus sistemas e IoT."
+                        features={[
+                            "Conectores a ERP/CRM/IoT",
+                            "Modelado y alertas con IA",
+                            "KPIs en web y móvil",
                         ]}
                     />
                 </div>
