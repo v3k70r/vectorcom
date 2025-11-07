@@ -3,7 +3,7 @@
 
 import { useId } from "react";
 
-type Kind = "agro" | "productivity" | "ecommerce" | "custom";
+type Kind = "agro" | "productivity" | "ecommerce" | "custom" | "security";
 
 export type ProductProps = {
     kind: Kind;
@@ -52,6 +52,7 @@ export default function ProductCard({
               </span>
                         )}
                     </div>
+
                     <p className="mt-1 text-zinc-300">{tagline}</p>
 
                     <ul className="mt-3 space-y-1.5 text-sm text-zinc-300">
@@ -93,6 +94,7 @@ function ProductIcon({ kind }: { kind: Kind }) {
     if (kind === "agro") return <IconAgro className={common} />;
     if (kind === "productivity") return <IconProductivity className={common} />;
     if (kind === "ecommerce") return <IconEcommerce className={common} />;
+    if (kind === "security") return <IconSecurity className={common} />;
     return <IconCustom className={common} />;
 }
 
@@ -149,13 +151,11 @@ function IconProductivity({ className }: { className?: string }) {
                 </filter>
             </defs>
             <rect x="6" y="10" width="52" height="44" rx="6" fill="#0c0b12" />
-            {/* ojo */}
             <g filter={`url(#${glow})`} stroke={`url(#${grad})`}>
                 <path d="M12 32 C20 22, 44 22, 52 32 C44 42, 20 42, 12 32 Z" fill="none" strokeWidth="2" />
                 <circle cx="32" cy="32" r="6" fill={`url(#${grad})`} opacity=".18" />
                 <circle cx="32" cy="32" r="6" fill="none" strokeWidth="1.6" className="neon-dash-10" style={{ strokeDasharray: "8 10" }} />
             </g>
-            {/* gráfico */}
             <g stroke={`url(#${grad})`} filter={`url(#${glow})`}>
                 <path d="M16 40 L24 34 L30 36 L38 30 L46 32 L52 27" fill="none" strokeWidth="1.8" />
             </g>
@@ -185,7 +185,6 @@ function IconEcommerce({ className }: { className?: string }) {
                 <path d="M16 28 h24 a4 4 0 0 1 4 4 v8 a4 4 0 0 1 -4 4 H20 a4 4 0 0 1 -4 -4 Z" fill="none" strokeWidth="1.6" />
                 <circle cx="24" cy="44" r="2" fill={`url(#${grad})`} />
                 <circle cx="40" cy="44" r="2" fill={`url(#${grad})`} />
-                {/* api plug */}
                 <path d="M44 20 h6 v4 h-6 M50 20 v-3" fill="none" strokeWidth="1.6" />
             </g>
         </svg>
@@ -210,16 +209,76 @@ function IconCustom({ className }: { className?: string }) {
                 </filter>
             </defs>
             <rect x="6" y="12" width="52" height="40" rx="6" fill="#0c0b12" />
-            {/* code braces */}
             <g stroke={`url(#${grad})`} filter={`url(#${glow})`} strokeWidth="2">
                 <path d="M22 24 q-6 8 0 16" fill="none" />
                 <path d="M42 24 q6 8 0 16" fill="none" />
             </g>
-            {/* devices */}
             <g stroke={`url(#${grad})`} filter={`url(#${glow})`} strokeWidth="1.6">
                 <rect x="26" y="30" width="12" height="14" rx="2" fill="none" />
                 <rect x="14" y="36" width="8" height="6" rx="1" fill="none" />
                 <rect x="42" y="34" width="8" height="8" rx="1" fill="none" />
+            </g>
+        </svg>
+    );
+}
+
+/* Seguridad/Vigilancia: escudo + casa + iris de cámara (Aladino Sentinel) */
+function IconSecurity({ className }: { className?: string }) {
+    const uid = useId().replace(/:/g, "");
+    const grad = `gSec-${uid}`;
+    const glow = `glowSec-${uid}`;
+    return (
+        <svg viewBox="0 0 64 64" className={className} aria-hidden>
+            <defs>
+                <linearGradient id={grad} x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#E7DDFF" />
+                    <stop offset="100%" stopColor="#6D1A94" />
+                </linearGradient>
+                <filter id={glow} x="-90%" y="-90%" width="280%" height="280%">
+                    <feGaussianBlur stdDeviation="2.6" result="b" />
+                    <feMerge>
+                        <feMergeNode in="b" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+            </defs>
+
+            {/* Escudo base */}
+            <path
+                d="M32 10 L46 15 V30c0 9-6.2 14.5-14 18-7.8-3.5-14-9-14-18V15Z"
+                fill="#0c0b12"
+            />
+            {/* Contorno escudo */}
+            <path
+                d="M32 10 L46 15 V30c0 9-6.2 14.5-14 18-7.8-3.5-14-9-14-18V15Z"
+                fill="none"
+                stroke={`url(#${grad})`}
+                strokeWidth="1.8"
+                filter={`url(#${glow})`}
+            />
+
+            {/* Casa minimal */}
+            <path
+                d="M22 32 L32 24 L42 32 M24 32 V40 H40 V32"
+                fill="none"
+                stroke={`url(#${grad})`}
+                strokeWidth="1.6"
+                filter={`url(#${glow})`}
+            />
+
+            {/* Iris / cámara */}
+            <g filter={`url(#${glow})`} stroke={`url(#${grad})`}>
+                <circle cx="32" cy="28" r="5.5" fill="none" strokeWidth="1.6" />
+                <circle
+                    cx="32"
+                    cy="28"
+                    r="5.5"
+                    fill="none"
+                    strokeWidth="1.6"
+                    className="neon-dash-10"
+                    style={{ strokeDasharray: "8 10" }}
+                />
+                <circle cx="32" cy="28" r="2.4" fill={`url(#${grad})`} opacity=".22" />
             </g>
         </svg>
     );
