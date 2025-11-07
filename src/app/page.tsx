@@ -9,6 +9,8 @@ import HeroCityCubeV2 from "@/components/HeroCityCubeV2";
 import RubikNeonCube from "@/components/RubikNeonCube";
 import TronCityNeon from "@/components/TronCityNeon";
 import TeamCard from "@/components/TeamCard";
+import ProductCard from "@/components/ProductCard";
+import Clients from "@/components/Clients";
 
 
 export default function HomePage() {
@@ -75,11 +77,66 @@ export default function HomePage() {
                   />
               </div>
           </Section>
+          <Section
+              id="productos"
+              title="Productos"
+              subtitle="Cuatro soluciones para digitalizar tu negocio con IA, IoT y software moderno."
+          >
+              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-4">
+                  <ProductCard
+                      kind="agro"
+                      name="AgroVector IA"
+                      badge="IA+IoT"
+                      tagline="Agronomía inteligente: sensores + modelos predictivos para riego y sanidad."
+                      features={[
+                          "Humedad de suelo, T°/HR y radiación",
+                          "Alertas y riego inteligente",
+                          "KPIs en panel web y móvil",
+                      ]}
+                  />
+
+                  <ProductCard
+                      kind="productivity"
+                      name="Aladino"
+                      badge="IA"
+                      tagline="Tu IA para productividad: visión + analítica para flujos y tiempos de proceso."
+                      features={[
+                          "Dashboards de KPIs y cuellos de botella",
+                          "Integración con cámaras y eventos",
+                          "Privacidad/consentimiento por diseño",
+                      ]}
+                      // href="/fichas/aladino.pdf"
+                  />
+
+                  <ProductCard
+                      kind="ecommerce"
+                      name="VectorCommerce"
+                      badge="SaaS"
+                      tagline="E-commerce headless listo para crecer: storefront rápido y APIs abiertas."
+                      features={[
+                          "Checkout moderno (WebPay/Stripe)",
+                          "Catálogo, inventario y promociones",
+                          "Integración logística (labels/tracking)",
+                      ]}
+                  />
+
+                  <ProductCard
+                      kind="custom"
+                      name="VectorForge"
+                      badge="A medida"
+                      tagline="Software a la medida: sitios web, apps móviles y sistemas internos."
+                      features={[
+                          "Discovery + UX/UI + desarrollo",
+                          "APIs/ETL e integraciones empresariales",
+                          "Soporte y roadmap continuo",
+                      ]}
+                  />
+              </div>
+          </Section>
 
         {/* CLIENTES */}
-        <Section id="clientes" title="Confían en nosotros" subtitle="Agro, industria, retail y sector público.">
-          <ClientsCloud />
-        </Section>
+          <Clients />
+
 
         {/* SERVICIOS */}
           <Section id="servicios" title="Servicios" subtitle="Implementa lo necesario hoy y escala cuando lo requieras.">

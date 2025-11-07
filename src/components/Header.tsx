@@ -19,9 +19,11 @@ export default function Header() {
     }, []);
 
     const links = [
+        { href: "#equipo", label: "Equipo" },
+        { href: "#productos", label: "Productos" },
+        { href: "#clientes", label: "Clientes" },
         { href: "#servicios", label: "Servicios" },
         { href: "#proyectos", label: "Proyectos" },
-        { href: "#equipo", label: "Equipo" },      // ⇦ nuevo
         { href: "#contacto", label: "Contacto" },
     ];
 
