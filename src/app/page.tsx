@@ -11,7 +11,7 @@ import TronCityNeon from "@/components/TronCityNeon";
 import TeamCard from "@/components/TeamCard";
 import ProductCard from "@/components/ProductCard";
 import Clients from "@/components/Clients";
-import Projects from "@/components/Projects"; // ⬅️ nuevo
+import Projects from "@/components/Projects"; // 
 
 export default function HomePage() {
     return (
@@ -63,7 +63,7 @@ export default function HomePage() {
             >
                 <div className="grid md:grid-cols-2 gap-4">
                     <TeamCard
-                        name="Matías Cañas"
+                        name="Javier Gomez"
                         role="CEO"
                     />
                     <TeamCard
